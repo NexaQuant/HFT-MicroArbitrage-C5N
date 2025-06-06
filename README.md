@@ -31,8 +31,10 @@ cd HFT-MicroArbitrage-C5N
 
 2. **配置环境变量**
 ```bash
-cp .env.c5n.testing .env
+# 复制配置模板
+cp configs/.env.c5n.testing .env
 # 编辑.env文件，填入你的API密钥
+vim .env
 ```
 
 3. **启动系统**
@@ -76,10 +78,10 @@ cp .env.c5n.testing .env
 
 ## 配置文件说明
 
-- `.env.c5n.testing` - C5N测试环境配置
+- `configs/.env.c5n.testing` - C5N测试环境配置
 - `docker-compose.c5n.yml` - C5N优化的Docker配置
 - `config.simple.toml` - 简化的应用配置
-- `deploy_iterative.md` - 详细的迭代部署指南
+- `docs/deploy_iterative.md` - 详细的迭代部署指南
 
 ## 监控和管理
 
@@ -207,6 +209,11 @@ docker-compose logs redis
 - 问题反馈: [Issues](https://github.com/NexaQuant/HFT-MicroArbitrage-C5N/issues)
 
 ## 更新日志
+
+### v0.1.1 (2024-12-06)
+- 修正配置文件路径错误
+- 更新快速开始指南
+- 完善项目结构说明
 
 ### v0.1.0 (2024-12-06)
 - 初始版本发布
