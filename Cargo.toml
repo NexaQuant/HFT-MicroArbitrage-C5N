@@ -1,0 +1,50 @@
+[package]
+name = "hft_micro_arbitrage"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+reqwest = { version = "0.11", features = ["json"] } # Usunięto "blocking", jeśli nie jest potrzebne dla REST
+tokio = { version = "1", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+log = "0.4"
+chrono = { version = "0.4", features = ["serde"] } # Może być potrzebne do timestampów lub logiki biznesowej
+sha2 = "0.10" # Prawdopodobnie dla REST API (podpisywanie)
+hmac = "0.12" # Prawdopodobnie dla REST API (podpisywanie)
+hex = "0.4"  # Prawdopodobnie dla REST API (podpisywanie)
+
+# Zależności dla WebSocket
+tokio-tungstenite = { version = "0.21", features = ["native-tls"] } # Lub "rustls-tls-native-roots" / "rustls-tls-webpki-roots"
+futures-util = { version = "0.3", features = ["sink", "std"] }
+url = "2.5.0"
+rust_decimal_macros = "1.33"
+crossbeam = "0.8"
+futures = "0.3"
+# SIMD 优化依赖
+wide = "0.7"
+# 内存池依赖 (crossbeam已包含ArrayQueue)
+
+# 数据库相关
+sqlx = { version = "0.7", features = [ "runtime-tokio-rustls", "postgres", "uuid", "chrono" ] }
+uuid = { version = "1.4", features = ["v4", "serde"] }
+dotenv = "0.15"
+
+# Logger - env_logger jest prosty w użyciu
+env_logger = "0.11"
+thiserror = "1.0"
+async-trait = "0.1"
+serde_qs = "0.12"
+more-asserts = "0.3.1"
+config = { version = "0.13", features = ["toml"] }
+anyhow = "1.0"
+
+[dependencies.rust_decimal]
+version = "1.33"
+features = ["serde-with-str"]
+
+[[bin]]
+name = "hft_client"
+path = "src/main.rs"
