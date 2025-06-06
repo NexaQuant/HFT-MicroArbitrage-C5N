@@ -30,6 +30,32 @@ Grafana:      0.2GB  (4%)
 系统预留:     0.2 CPU (10%)
 ```
 
+## 快速开始
+
+### 1. 克隆项目
+```bash
+git clone https://github.com/NexaQuant/HFT-MicroArbitrage-C5N.git
+cd HFT-MicroArbitrage-C5N
+```
+
+### 2. 初始化环境
+```bash
+# 复制配置模板
+cp configs/.env.c5n.testing .env
+
+# 编辑配置文件，填入你的API密钥
+vim .env
+```
+
+### 3. 启动系统
+```bash
+# Windows
+.\deploy_c5n.bat testing
+
+# Linux/Mac
+./deploy.sh --env=testing
+```
+
 ## 多环境管理
 
 ### 环境配置
